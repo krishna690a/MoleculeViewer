@@ -14,7 +14,8 @@ function displayMolecule(canvas, molecule) {
     function init() {
         renderer = new THREE.WebGLRenderer({ 
             canvas: canvas,
-            antialias: true
+            antialias: true,
+            alpha: true
         });
         renderer.setPixelRatio(window.devicePixelRatio);
         renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -29,7 +30,7 @@ function displayMolecule(canvas, molecule) {
         const pmremGenerator = new THREE.PMREMGenerator(renderer);
 
         scene = new THREE.Scene();
-        scene.background = new THREE.Color(0x808080);
+        scene.background = null;
         scene.environment = pmremGenerator.fromScene(environment).texture;
 
         // const grid = new THREE.GridHelper(20, 10, 0xffffff, 0xffffff);
